@@ -64,6 +64,7 @@ class BumpNotificationListener : EventListener {
         event.channel.sendMessage(
             "${bumpNotificationRole.asMention}, the server is ready to be bumped! **!d bump**"
         ).await()
+        return
     }
 
     override fun register(jda: JDA) {

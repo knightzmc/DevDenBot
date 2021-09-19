@@ -26,7 +26,6 @@ class CodeBlockMessageListener @Inject constructor(
         private const val MIN_ROWS_FOR_CONVERSION = 15
 
         internal val codeBlock = Regex("```(?:(?<lang>[a-zA-Z]+)?\\n)?((?:.|\\n)*?)```")
-
     }
 
     private suspend fun onGuildMessageReceived(event: GuildMessageReceivedEvent) {
@@ -46,6 +45,7 @@ class CodeBlockMessageListener @Inject constructor(
         if (!rawText.contains(codeBlock)) {
             return
         }
+
         val member = event.member ?: event.guild.retrieveMemberById(event.author.id).await()
         if (isAdmin(member) && !rawText.startsWith("${ddbConfig.prefix}convert")) {
             log.debug { "Admin messages that contain code blocks are not converted by default. Use the ${ddbConfig.prefix}convert prefix to automatically convert messages." }

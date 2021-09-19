@@ -112,7 +112,7 @@ class DevDen {
     }
 
     private fun startTasks(jda: JDA) {
-        log.info { "starting tasks..." }
+        log.info { "Starting tasks..." }
         val timer = Timer()
         timer.schedule(VoiceChatXPTask(jda), 0L, TimeUnit.SECONDS.toMillis(60))
     }

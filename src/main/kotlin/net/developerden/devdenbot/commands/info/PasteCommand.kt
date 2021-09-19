@@ -17,5 +17,4 @@ class PasteCommand : DevDenSlashCommand(
     override suspend fun SlashCommandEvent.execute() {
         reply(HasteClient.baseUrl).await()
     }
-
 }
